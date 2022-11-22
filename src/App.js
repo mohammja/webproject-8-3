@@ -10,6 +10,8 @@ export default function App() {
   useEffect(() => {
     axios.get(`${baseURL}/1`).then((response) => {
       setPost(response.data);
+    }).catch(error=>{
+      setError(error);
     });
   }, []);
 
@@ -21,9 +23,7 @@ export default function App() {
       })
       .then((response) => {
         setPost(response.data);
-      }).catch(error=>{
-        setError(error);
-      });
+      })
   }
 
   function updatePost() {
